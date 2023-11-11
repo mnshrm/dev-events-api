@@ -1,3 +1,11 @@
+const {
+  getEventReport,
+  changeEventDetails,
+  getAllEvents,
+  createEvent,
+  deleteEvent,
+} = require("../controllers/eventControllers");
+
 const express = require("express");
 
 const router = express.Router();
@@ -17,3 +25,5 @@ router
   .get(getEventReport)
   .put(changeEventDetails)
   .delete(deleteEvent);
+
+exports.eventRouter = router;

@@ -14,7 +14,7 @@ const eventSchema = new mongoose.Schema({
     required: true,
   },
   description: {
-    type: true,
+    type: String,
     required: true,
   },
   date: {
@@ -29,6 +29,7 @@ const eventSchema = new mongoose.Schema({
   attendance: {
     type: mongoose.ObjectId,
   },
+  Report: String,
 });
 
 const Event = mongoose.model("events", eventSchema);

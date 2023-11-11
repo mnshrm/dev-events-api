@@ -1,5 +1,5 @@
 // To handle async errors , try-catch
 
-module.exports = (theFunc) => (req, res, next) => {
+module.exports.catchAsyncError = (theFunc) => (req, res, next) => {
   Promise.resolve(theFunc(req, res, next)).catch(next);
 };

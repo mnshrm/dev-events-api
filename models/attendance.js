@@ -23,10 +23,6 @@ const attendeeSchema = new mongoose.Schema({
  * venue - Event venue
  */
 const attendanceSchema = new mongoose.Schema({
-  eventName: {
-    type: String,
-    required: true,
-  },
   attendes: {
     type: [attendeeSchema],
     required: true,

@@ -2,8 +2,8 @@ const path = require("path");
 
 const connectDB = require("./db/db");
 const errorMiddleware = require("./middlewares/error");
-const eventRouter = require("./routes/eventRoutes");
-const attendanceRouter = require("./routes/attendanceRoutes");
+const { eventRouter } = require("./routes/eventRoutes");
+const { attendanceRouter } = require("./routes/attendanceRoutes");
 
 const express = require("express");
 const bodyParser = require("body-parser");
