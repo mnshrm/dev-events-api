@@ -1,0 +1,37 @@
+const mongoose = require("mongoose");
+
+const attendeeSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  status: {
+    type: String,
+    required: true,
+    enum: ["present", "absent"],
+  },
+  reason: {
+    type: String,
+  },
+});
+/**
+ * Event is any drill, SSB or sports class, or any internal or external event,
+ * that is to take place in the name of NCC.
+ * eventName - Name of the event
+ * description - Description of the event, what is it about, what will happen, Who will take the class etc
+ * date - Date and time of the event
+ * venue - Event venue
+ */
+const attendanceSchema = new mongoose.Schema({
+  eventName: {
+    type: String,
+    required: true,
+  },
+  attendes: {
+    type: [attendeeSchema],
+    required: true,
+  },
+});
+
+const Attendance = mongoose.model("attendances", attendanceSchema);
+module.exports = Attendance;
