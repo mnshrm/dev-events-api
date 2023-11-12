@@ -8,10 +8,11 @@ const attendeeSchema = new mongoose.Schema({
   status: {
     type: String,
     required: true,
-    enum: ["present", "absent"],
+    enum: ["P", "A"],
   },
   reason: {
     type: String,
+    default: "",
   },
 });
 /**

@@ -50,6 +50,7 @@ exports.getEventReport = catchAsyncError(async (req, res, next) => {
 
   if (eventDetails) {
     const attendance = await Attendance.findById(eventDetails.attendance);
+
     res.status(200).json({
       success: true,
       event: { ...eventDetails._doc, attendance },
@@ -62,6 +63,9 @@ exports.getEventReport = catchAsyncError(async (req, res, next) => {
   }
 });
 
+/**
+ * To change event details
+ */
 exports.changeEventDetails = catchAsyncError(async (req, res, next) => {
   const confirmation = await Event.updateOne({ _id: req.params.id }, req.body);
   res.status(200).json({
@@ -70,11 +74,12 @@ exports.changeEventDetails = catchAsyncError(async (req, res, next) => {
   });
 });
 
+/**
+ * To delete an event
+ */
 exports.deleteEvent = catchAsyncError(async (req, res, next) => {
   const deletedEvent = await Event.findByIdAndDelete(req.params.id);
-  const deletedAttendance = await Attendance.findByIdAndDelete(
-    deletedEvent.attendance
-  );
+  await Attendance.findByIdAndDelete(deletedEvent.attendance);
   res.status(200).json({
     success: true,
   });
