@@ -5,6 +5,10 @@ const attendeeSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  dli: {
+    type: String,
+    required: true,
+  },
   status: {
     type: String,
     required: true,
