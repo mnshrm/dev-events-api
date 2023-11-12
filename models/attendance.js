@@ -9,6 +9,11 @@ const attendeeSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  company: {
+    type: String,
+    required: true,
+    // enum:['Alpha','Bravo','Charlie','Rank']
+  },
   status: {
     type: String,
     required: true,
