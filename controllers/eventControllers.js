@@ -8,6 +8,7 @@ const ErrorHandler = require("../utils/errorHandler");
  * It will create an event and its attendance
  * Request Body
  * eventName - String
+ * eventType - ['class','camp', 'internal event' , 'external event']
  * description - String
  * date - String (ISO string)
  * venue - String

@@ -13,6 +13,11 @@ const eventSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  eventType: {
+    type: String,
+    required: true,
+    enum: ["class", "camp", "Internal event", "External event", "other"],
+  },
   description: {
     type: String,
     required: true,

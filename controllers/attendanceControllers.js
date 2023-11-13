@@ -34,6 +34,7 @@ exports.markStatus = catchAsyncError(async (req, res, next) => {
  */
 exports.changeStatus = catchAsyncError(async (req, res, next) => {
   const event = await Event.findById(req.params.id);
+  if (!event) throw new ErrorHandler("Event does not exist", 404);
   const attendance = await Attendance.findById(event.attendance);
   let ind = attendance.attendes.findIndex((ele) => ele.dli === req.body.dli);
   let confirmation;
