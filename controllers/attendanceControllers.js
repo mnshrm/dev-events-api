@@ -7,6 +7,7 @@ const ErrorHandler = require("../utils/errorHandler");
  * Request body will be
  * name : Name of the student
  * dli : dli number of the cadet
+ * company : cadet's company
  * status : either "present" or "absent"
  * reason : Reason required if absent
  */
@@ -29,6 +30,7 @@ exports.markStatus = catchAsyncError(async (req, res, next) => {
  * Request body will be
  * name : Name of the student
  * dli : dli number of the cadet
+ * company : cadet's company
  * status : either "present" or "absent"
  * reason : Reason required if absent
  */
@@ -37,7 +39,6 @@ exports.changeStatus = catchAsyncError(async (req, res, next) => {
   if (!event) throw new ErrorHandler("Event does not exist", 404);
   const attendance = await Attendance.findById(event.attendance);
   let ind = attendance.attendes.findIndex((ele) => ele.dli === req.body.dli);
-  let confirmation;
   if (ind === -1) {
     confirmation = attendance.attendes.addToSet(req.body);
   } else {

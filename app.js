@@ -20,6 +20,10 @@ connectDB();
 app.use("/event", eventRouter);
 app.use("/attendance", attendanceRouter);
 
+app.use("/", (req, res, next) => {
+  res.send("Error");
+});
+
 app.use(errorMiddleware);
 
 module.exports = app;
