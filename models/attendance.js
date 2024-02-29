@@ -12,7 +12,6 @@ const attendeeSchema = new mongoose.Schema({
   company: {
     type: String,
     required: true,
-    // enum:['Alpha','Bravo','Charlie','Rank']
   },
   status: {
     type: String,
